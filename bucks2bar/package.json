@@ -1,0 +1,16 @@
+{
+    "name": "bucks2bar",
+    "version": "1.0.0",
+    "description": "Financial tracker application",
+    "scripts": {
+        "test": "jest",
+        "test:watch": "jest --watch"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "jest": "^29.7.0",
+        "jest-environment-jsdom": "^29.7.0"
+    }
+}
