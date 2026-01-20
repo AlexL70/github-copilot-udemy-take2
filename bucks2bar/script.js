@@ -114,24 +114,29 @@ function initializeRandomData() {
 }
 
 // Validate username
-function validateUsername() {
+function validateUsername(showAlert) {
     const usernameInput = document.getElementById('username');
     const username = usernameInput.value;
     const errorDiv = document.getElementById('username-error');
 
     // Validation regex: at least 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
 
     if (regex.test(username)) {
         usernameInput.classList.remove('is-invalid');
         usernameInput.classList.add('is-valid');
         errorDiv.style.display = 'none';
-        alert('Username is valid: ' + username);
+        if (showAlert) {
+            alert('✓ Username "' + username + '" is valid and accepted!');
+        }
         return true;
     } else {
         usernameInput.classList.remove('is-valid');
         usernameInput.classList.add('is-invalid');
         errorDiv.style.display = 'block';
+        if (showAlert) {
+            alert('✗ Username validation failed!\n\nRequirements:\n• Minimum 8 characters\n• At least 1 uppercase letter\n• At least 1 lowercase letter\n• At least 1 number\n• At least 1 special character (@$!%*?&#)');
+        }
         return false;
     }
 }
@@ -172,15 +177,18 @@ window.onload = function () {
     const downloadBtn = document.getElementById('downloadChart');
     downloadBtn.addEventListener('click', downloadChartAsPNG);
 
-    // Add event listener to submit username button
-    const submitUsernameBtn = document.getElementById('submitUsername');
-    submitUsernameBtn.addEventListener('click', validateUsername);
+    // Add event listener to username form submission
+    const usernameForm = document.getElementById('usernameForm');
+    usernameForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        validateUsername(true);
+    });
 
     // Add real-time validation feedback on input
     const usernameInput = document.getElementById('username');
     usernameInput.addEventListener('input', function () {
         if (this.value.length > 0) {
-            validateUsername();
+            validateUsername(false);
         }
     });
 };
