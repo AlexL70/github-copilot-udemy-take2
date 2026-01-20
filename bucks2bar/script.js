@@ -113,6 +113,27 @@ function initializeRandomData() {
     });
 }
 
+// Download chart as PNG
+function downloadChartAsPNG() {
+    if (!myChart) {
+        alert('Please view the chart first before downloading.');
+        return;
+    }
+
+    // Get the chart as a base64 encoded PNG image
+    const imageURL = myChart.toBase64Image();
+
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = imageURL;
+    link.download = 'income-expenses-chart.png';
+
+    // Trigger the download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 // Initialize on page load
 window.onload = function () {
     initializeRandomData();
@@ -123,4 +144,8 @@ window.onload = function () {
     chartTab.addEventListener('shown.bs.tab', function () {
         updateChart();
     });
+
+    // Add event listener to download button
+    const downloadBtn = document.getElementById('downloadChart');
+    downloadBtn.addEventListener('click', downloadChartAsPNG);
 };

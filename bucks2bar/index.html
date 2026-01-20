@@ -2,167 +2,206 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bucks2Bar</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bucks2Bar</title>
+        <!-- Bootstrap 5 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Bucks2Bar</h1>
+        <div class="container mt-5">
+                <h1 class="text-center mb-4">Bucks2Bar</h1>
 
-        <!-- Tab Navigation -->
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="data-tab" data-bs-toggle="tab" data-bs-target="#data" type="button"
-                    role="tab" aria-controls="data" aria-selected="true">Data</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="chart-tab" data-bs-toggle="tab" data-bs-target="#chart" type="button"
-                    role="tab" aria-controls="chart" aria-selected="false">Chart</button>
-            </li>
-        </ul>
+                <!-- Tab Navigation -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="data-tab" data-bs-toggle="tab"
+                                        data-bs-target="#data" type="button" role="tab" aria-controls="data"
+                                        aria-selected="true">Data</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="chart-tab" data-bs-toggle="tab" data-bs-target="#chart"
+                                        type="button" role="tab" aria-controls="chart"
+                                        aria-selected="false">Chart</button>
+                        </li>
+                </ul>
 
-        <!-- Tab Content -->
-        <div class="tab-content" id="myTabContent">
-            <!-- Data Tab -->
-            <div class="tab-pane fade show active" id="data" role="tabpanel" aria-labelledby="data-tab">
-                <div class="mt-4">
-                    <h3>Monthly Income and Expenses</h3>
-                    <div class="row fw-bold mb-3">
-                        <div class="col-4">Month</div>
-                        <div class="col-4">Income ($)</div>
-                        <div class="col-4">Expenses ($)</div>
-                    </div>
+                <!-- Tab Content -->
+                <div class="tab-content" id="myTabContent">
+                        <!-- Data Tab -->
+                        <div class="tab-pane fade show active" id="data" role="tabpanel" aria-labelledby="data-tab">
+                                <div class="mt-4">
+                                        <h3>Monthly Income and Expenses</h3>
+                                        <div class="row fw-bold mb-3">
+                                                <div class="col-4">Month</div>
+                                                <div class="col-4">Income ($)</div>
+                                                <div class="col-4">Expenses ($)</div>
+                                        </div>
 
-                    <!-- January -->
-                    <div class="row mb-2">
-                        <div class="col-4"><label for="income-jan" class="col-form-label">January</label></div>
-                        <div class="col-4"><input type="number" class="form-control income-input" id="income-jan"
-                                min="0" value="0"></div>
-                        <div class="col-4"><input type="number" class="form-control expense-input" id="expense-jan"
-                                min="0" value="0"></div>
-                    </div>
+                                        <!-- January -->
+                                        <div class="row mb-2">
+                                                <div class="col-4"><label for="income-jan"
+                                                                class="col-form-label">January</label></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control income-input" id="income-jan"
+                                                                min="0" value="0"></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control expense-input" id="expense-jan"
+                                                                min="0" value="0"></div>
+                                        </div>
 
-                    <!-- February -->
-                    <div class="row mb-2">
-                        <div class="col-4"><label for="income-feb" class="col-form-label">February</label></div>
-                        <div class="col-4"><input type="number" class="form-control income-input" id="income-feb"
-                                min="0" value="0"></div>
-                        <div class="col-4"><input type="number" class="form-control expense-input" id="expense-feb"
-                                min="0" value="0"></div>
-                    </div>
+                                        <!-- February -->
+                                        <div class="row mb-2">
+                                                <div class="col-4"><label for="income-feb"
+                                                                class="col-form-label">February</label></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control income-input" id="income-feb"
+                                                                min="0" value="0"></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control expense-input" id="expense-feb"
+                                                                min="0" value="0"></div>
+                                        </div>
 
-                    <!-- March -->
-                    <div class="row mb-2">
-                        <div class="col-4"><label for="income-mar" class="col-form-label">March</label></div>
-                        <div class="col-4"><input type="number" class="form-control income-input" id="income-mar"
-                                min="0" value="0"></div>
-                        <div class="col-4"><input type="number" class="form-control expense-input" id="expense-mar"
-                                min="0" value="0"></div>
-                    </div>
+                                        <!-- March -->
+                                        <div class="row mb-2">
+                                                <div class="col-4"><label for="income-mar"
+                                                                class="col-form-label">March</label></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control income-input" id="income-mar"
+                                                                min="0" value="0"></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control expense-input" id="expense-mar"
+                                                                min="0" value="0"></div>
+                                        </div>
 
-                    <!-- April -->
-                    <div class="row mb-2">
-                        <div class="col-4"><label for="income-apr" class="col-form-label">April</label></div>
-                        <div class="col-4"><input type="number" class="form-control income-input" id="income-apr"
-                                min="0" value="0"></div>
-                        <div class="col-4"><input type="number" class="form-control expense-input" id="expense-apr"
-                                min="0" value="0"></div>
-                    </div>
+                                        <!-- April -->
+                                        <div class="row mb-2">
+                                                <div class="col-4"><label for="income-apr"
+                                                                class="col-form-label">April</label></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control income-input" id="income-apr"
+                                                                min="0" value="0"></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control expense-input" id="expense-apr"
+                                                                min="0" value="0"></div>
+                                        </div>
 
-                    <!-- May -->
-                    <div class="row mb-2">
-                        <div class="col-4"><label for="income-may" class="col-form-label">May</label></div>
-                        <div class="col-4"><input type="number" class="form-control income-input" id="income-may"
-                                min="0" value="0"></div>
-                        <div class="col-4"><input type="number" class="form-control expense-input" id="expense-may"
-                                min="0" value="0"></div>
-                    </div>
+                                        <!-- May -->
+                                        <div class="row mb-2">
+                                                <div class="col-4"><label for="income-may"
+                                                                class="col-form-label">May</label></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control income-input" id="income-may"
+                                                                min="0" value="0"></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control expense-input" id="expense-may"
+                                                                min="0" value="0"></div>
+                                        </div>
 
-                    <!-- June -->
-                    <div class="row mb-2">
-                        <div class="col-4"><label for="income-jun" class="col-form-label">June</label></div>
-                        <div class="col-4"><input type="number" class="form-control income-input" id="income-jun"
-                                min="0" value="0"></div>
-                        <div class="col-4"><input type="number" class="form-control expense-input" id="expense-jun"
-                                min="0" value="0"></div>
-                    </div>
+                                        <!-- June -->
+                                        <div class="row mb-2">
+                                                <div class="col-4"><label for="income-jun"
+                                                                class="col-form-label">June</label></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control income-input" id="income-jun"
+                                                                min="0" value="0"></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control expense-input" id="expense-jun"
+                                                                min="0" value="0"></div>
+                                        </div>
 
-                    <!-- July -->
-                    <div class="row mb-2">
-                        <div class="col-4"><label for="income-jul" class="col-form-label">July</label></div>
-                        <div class="col-4"><input type="number" class="form-control income-input" id="income-jul"
-                                min="0" value="0"></div>
-                        <div class="col-4"><input type="number" class="form-control expense-input" id="expense-jul"
-                                min="0" value="0"></div>
-                    </div>
+                                        <!-- July -->
+                                        <div class="row mb-2">
+                                                <div class="col-4"><label for="income-jul"
+                                                                class="col-form-label">July</label></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control income-input" id="income-jul"
+                                                                min="0" value="0"></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control expense-input" id="expense-jul"
+                                                                min="0" value="0"></div>
+                                        </div>
 
-                    <!-- August -->
-                    <div class="row mb-2">
-                        <div class="col-4"><label for="income-aug" class="col-form-label">August</label></div>
-                        <div class="col-4"><input type="number" class="form-control income-input" id="income-aug"
-                                min="0" value="0"></div>
-                        <div class="col-4"><input type="number" class="form-control expense-input" id="expense-aug"
-                                min="0" value="0"></div>
-                    </div>
+                                        <!-- August -->
+                                        <div class="row mb-2">
+                                                <div class="col-4"><label for="income-aug"
+                                                                class="col-form-label">August</label></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control income-input" id="income-aug"
+                                                                min="0" value="0"></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control expense-input" id="expense-aug"
+                                                                min="0" value="0"></div>
+                                        </div>
 
-                    <!-- September -->
-                    <div class="row mb-2">
-                        <div class="col-4"><label for="income-sep" class="col-form-label">September</label></div>
-                        <div class="col-4"><input type="number" class="form-control income-input" id="income-sep"
-                                min="0" value="0"></div>
-                        <div class="col-4"><input type="number" class="form-control expense-input" id="expense-sep"
-                                min="0" value="0"></div>
-                    </div>
+                                        <!-- September -->
+                                        <div class="row mb-2">
+                                                <div class="col-4"><label for="income-sep"
+                                                                class="col-form-label">September</label></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control income-input" id="income-sep"
+                                                                min="0" value="0"></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control expense-input" id="expense-sep"
+                                                                min="0" value="0"></div>
+                                        </div>
 
-                    <!-- October -->
-                    <div class="row mb-2">
-                        <div class="col-4"><label for="income-oct" class="col-form-label">October</label></div>
-                        <div class="col-4"><input type="number" class="form-control income-input" id="income-oct"
-                                min="0" value="0"></div>
-                        <div class="col-4"><input type="number" class="form-control expense-input" id="expense-oct"
-                                min="0" value="0"></div>
-                    </div>
+                                        <!-- October -->
+                                        <div class="row mb-2">
+                                                <div class="col-4"><label for="income-oct"
+                                                                class="col-form-label">October</label></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control income-input" id="income-oct"
+                                                                min="0" value="0"></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control expense-input" id="expense-oct"
+                                                                min="0" value="0"></div>
+                                        </div>
 
-                    <!-- November -->
-                    <div class="row mb-2">
-                        <div class="col-4"><label for="income-nov" class="col-form-label">November</label></div>
-                        <div class="col-4"><input type="number" class="form-control income-input" id="income-nov"
-                                min="0" value="0"></div>
-                        <div class="col-4"><input type="number" class="form-control expense-input" id="expense-nov"
-                                min="0" value="0"></div>
-                    </div>
+                                        <!-- November -->
+                                        <div class="row mb-2">
+                                                <div class="col-4"><label for="income-nov"
+                                                                class="col-form-label">November</label></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control income-input" id="income-nov"
+                                                                min="0" value="0"></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control expense-input" id="expense-nov"
+                                                                min="0" value="0"></div>
+                                        </div>
 
-                    <!-- December -->
-                    <div class="row mb-2">
-                        <div class="col-4"><label for="income-dec" class="col-form-label">December</label></div>
-                        <div class="col-4"><input type="number" class="form-control income-input" id="income-dec"
-                                min="0" value="0"></div>
-                        <div class="col-4"><input type="number" class="form-control expense-input" id="expense-dec"
-                                min="0" value="0"></div>
-                    </div>
+                                        <!-- December -->
+                                        <div class="row mb-2">
+                                                <div class="col-4"><label for="income-dec"
+                                                                class="col-form-label">December</label></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control income-input" id="income-dec"
+                                                                min="0" value="0"></div>
+                                                <div class="col-4"><input type="number"
+                                                                class="form-control expense-input" id="expense-dec"
+                                                                min="0" value="0"></div>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <!-- Chart Tab -->
+                        <div class="tab-pane fade" id="chart" role="tabpanel" aria-labelledby="chart-tab">
+                                <div class="mt-4">
+                                        <h3>Income vs Expenses Chart</h3>
+                                        <button id="downloadChart" class="btn btn-primary mb-3">Download Chart</button>
+                                        <canvas id="myChart" width="400" height="200"></canvas>
+                                </div>
+                        </div>
                 </div>
-            </div>
-
-            <!-- Chart Tab -->
-            <div class="tab-pane fade" id="chart" role="tabpanel" aria-labelledby="chart-tab">
-                <div class="mt-4">
-                    <h3>Income vs Expenses Chart</h3>
-                    <canvas id="myChart" width="400" height="200"></canvas>
-                </div>
-            </div>
         </div>
-    </div>
 
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <!-- Custom Script -->
-    <script src="script.js"></script>
+        <!-- Bootstrap 5 JS Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Chart.js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+        <!-- Custom Script -->
+        <script src="script.js"></script>
 </body>
 
 </html>
