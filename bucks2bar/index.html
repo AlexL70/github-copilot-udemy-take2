@@ -13,6 +13,20 @@
         <div class="container mt-5">
                 <h1 class="text-center mb-4">Bucks2Bar</h1>
 
+                <!-- Username Input Section -->
+                <div class="mb-4">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username"
+                                placeholder="Enter username (min 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char)"
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" required>
+                        <div class="invalid-feedback" id="username-error">
+                                Username must contain at least 8 characters, including 1 uppercase, 1 lowercase, 1
+                                number, and 1 special character (@$!%*?&).
+                        </div>
+                        <button type="button" class="btn mt-2" id="submitUsername"
+                                style="background-color: pink; color: blue;">Submit</button>
+                </div>
+
                 <!-- Tab Navigation -->
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">

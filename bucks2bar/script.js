@@ -113,6 +113,29 @@ function initializeRandomData() {
     });
 }
 
+// Validate username
+function validateUsername() {
+    const usernameInput = document.getElementById('username');
+    const username = usernameInput.value;
+    const errorDiv = document.getElementById('username-error');
+
+    // Validation regex: at least 8 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (regex.test(username)) {
+        usernameInput.classList.remove('is-invalid');
+        usernameInput.classList.add('is-valid');
+        errorDiv.style.display = 'none';
+        alert('Username is valid: ' + username);
+        return true;
+    } else {
+        usernameInput.classList.remove('is-valid');
+        usernameInput.classList.add('is-invalid');
+        errorDiv.style.display = 'block';
+        return false;
+    }
+}
+
 // Download chart as PNG
 function downloadChartAsPNG() {
     if (!myChart) {
@@ -148,4 +171,16 @@ window.onload = function () {
     // Add event listener to download button
     const downloadBtn = document.getElementById('downloadChart');
     downloadBtn.addEventListener('click', downloadChartAsPNG);
+
+    // Add event listener to submit username button
+    const submitUsernameBtn = document.getElementById('submitUsername');
+    submitUsernameBtn.addEventListener('click', validateUsername);
+
+    // Add real-time validation feedback on input
+    const usernameInput = document.getElementById('username');
+    usernameInput.addEventListener('input', function () {
+        if (this.value.length > 0) {
+            validateUsername();
+        }
+    });
 };
