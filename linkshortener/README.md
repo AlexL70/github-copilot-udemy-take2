@@ -1,5 +1,19 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Clerk setup (App Router)
+
+1. Install the SDK: `npm install @clerk/nextjs`
+2. Add your Clerk keys to `.env.local` (file is already ignored):
+
+```
+# .env.local
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
+CLERK_SECRET_KEY=YOUR_SECRET_KEY
+```
+
+3. A `proxy.ts` file is included and uses `clerkMiddleware()` from `@clerk/nextjs/server`.
+4. The app is wrapped with `<ClerkProvider>` in `app/layout.tsx`, and the header already shows `SignInButton`, `SignUpButton`, and `UserButton` controls.
+
 ## Getting Started
 
 First, run the development server:
