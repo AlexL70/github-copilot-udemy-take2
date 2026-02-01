@@ -20,6 +20,9 @@ This document provides comprehensive coding standards, architectural patterns, a
 
 Detailed guidelines are organized in the `/docs` directory. ALWAYS refer to the relevant .md file in the `/docs` directory BEFORE generating any code:
 
+- **[Authentication](/docs/authentication.md)** - Clerk authentication patterns, protected routes, modal sign-in flows
+- **[UI Components](/docs/ui-components.md)** - shadcn/ui component usage, never create custom UI components
+
 ---
 
 ## ⚡ Quick Start for AI Agents
