@@ -10,7 +10,7 @@
 
 1. ✅ **Clerk Only** - Use Clerk for all authentication and user management
 2. ✅ **Modal Sign-In** - Always launch sign-in/sign-up flows as modals
-3. ✅ **Protected Routes** - Require authentication for `/dashboard` and related pages
+3. ✅ **Protected Routes** - Require authentication for `/dashboard` and related pages. Redirect unauthenticated users back to home page.
 4. ✅ **Smart Redirects** - Redirect authenticated users from homepage to dashboard
 
 ---

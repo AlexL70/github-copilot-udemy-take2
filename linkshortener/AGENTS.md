@@ -18,14 +18,28 @@ This document provides comprehensive coding standards, architectural patterns, a
 
 ## 📚 Documentation Structure
 
-Detailed guidelines are organized in the `/docs` directory. ALWAYS refer to the relevant .md file in the `/docs` directory BEFORE generating any code:
+### ⚠️ CRITICAL: READ DOCUMENTATION FIRST ⚠️
+
+**BEFORE generating ANY code, you MUST read the relevant documentation file from the `/docs` directory.**
+
+Detailed, authoritative guidelines are organized in the `/docs` directory:
 
 - **[Authentication](/docs/authentication.md)** - Clerk authentication patterns, protected routes, modal sign-in flows
 - **[UI Components](/docs/ui-components.md)** - shadcn/ui component usage, never create custom UI components
 
+**These documentation files contain specific implementation patterns, examples, and requirements that override general guidelines. Failure to consult these files will result in incorrect implementations that violate project standards.**
+
 ---
 
 ## ⚡ Quick Start for AI Agents
+
+### 🚨 MANDATORY FIRST STEP
+
+**BEFORE writing ANY code, ALWAYS:**
+
+1. Identify which area you're working on (authentication, UI components, etc.)
+2. Read the complete relevant documentation file from `/docs/`
+3. Follow the specific patterns and examples provided in that documentation
 
 ### Core Principles
 
@@ -804,16 +818,18 @@ For detailed information on specific topics, consult:
 
 When implementing features:
 
-1. **Understand requirements** - Clarify what needs to be built
-2. **Check authentication** - Determine if feature requires auth
-3. **Design schema** - Update `db/schema.ts` if database changes needed
-4. **Choose component type** - Server Component (default) or Client Component
-5. **Implement with types** - Write TypeScript with explicit types
-6. **Add validation** - Validate all user inputs
-7. **Handle errors** - Provide user-friendly error messages
-8. **Style with Tailwind** - Include dark mode support
-9. **Test thoroughly** - Verify functionality and edge cases
-10. **Review checklist** - Ensure all standards are met
+1. **📖 READ DOCUMENTATION FIRST** - Identify the relevant `/docs/*.md` file and read it completely BEFORE writing any code
+2. **Understand requirements** - Clarify what needs to be built
+3. **Check authentication** - Determine if feature requires auth (consult `/docs/authentication.md`)
+4. **Check UI components** - Identify needed components (consult `/docs/ui-components.md`)
+5. **Design schema** - Update `db/schema.ts` if database changes needed
+6. **Choose component type** - Server Component (default) or Client Component
+7. **Implement with types** - Write TypeScript with explicit types
+8. **Add validation** - Validate all user inputs
+9. **Handle errors** - Provide user-friendly error messages
+10. **Style with Tailwind** - Include dark mode support
+11. **Test thoroughly** - Verify functionality and edge cases
+12. **Review checklist** - Ensure all standards are met and documentation requirements followed
 
 ---
 
