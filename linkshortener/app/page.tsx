@@ -2,7 +2,13 @@ import Image from "next/image";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SignUpButton } from "@clerk/nextjs";
 import { Link2, Zap, Shield, BarChart3, Clock, Sparkles } from "lucide-react";
@@ -27,31 +33,29 @@ export default async function Home() {
             height={20}
             priority
           />
-          
+
           <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 dark:bg-primary/20">
             <Sparkles className="mr-1 h-3 w-3" />
             Simple. Fast. Secure.
           </Badge>
-          
+
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-6 max-w-4xl">
             Shorten Links,
             <span className="text-primary"> Amplify Impact</span>
           </h1>
-          
+
           <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl">
-            Create short, memorable links in seconds. Track clicks, manage your URLs, 
-            and share with confidence. Built for professionals who value simplicity and security.
+            Create short, memorable links in seconds. Track clicks, manage your
+            URLs, and share with confidence. Built for professionals who value
+            simplicity and security.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4">
             <SignUpButton mode="modal">
               <Button size="lg" className="text-base">
                 Get Started Free
               </Button>
             </SignUpButton>
-            <Button size="lg" variant="outline" className="text-base">
-              See How It Works
-            </Button>
           </div>
         </section>
 
@@ -74,7 +78,8 @@ export default async function Home() {
                 </div>
                 <CardTitle>Instant Short Links</CardTitle>
                 <CardDescription>
-                  Create short, branded links in milliseconds. No hassle, no complexity.
+                  Create short, branded links in milliseconds. No hassle, no
+                  complexity.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -86,7 +91,8 @@ export default async function Home() {
                 </div>
                 <CardTitle>Lightning Fast</CardTitle>
                 <CardDescription>
-                  Built on modern infrastructure for blazing-fast redirects and zero downtime.
+                  Built on modern infrastructure for blazing-fast redirects and
+                  zero downtime.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -98,7 +104,8 @@ export default async function Home() {
                 </div>
                 <CardTitle>Secure & Private</CardTitle>
                 <CardDescription>
-                  Your data is encrypted and protected. We never share your links or analytics.
+                  Your data is encrypted and protected. We never share your
+                  links or analytics.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -110,7 +117,8 @@ export default async function Home() {
                 </div>
                 <CardTitle>Click Analytics</CardTitle>
                 <CardDescription>
-                  Track link performance with real-time click counts and engagement metrics.
+                  Track link performance with real-time click counts and
+                  engagement metrics.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -122,7 +130,8 @@ export default async function Home() {
                 </div>
                 <CardTitle>Link Management</CardTitle>
                 <CardDescription>
-                  Organize, edit, and manage all your links from a single, intuitive dashboard.
+                  Organize, edit, and manage all your links from a single,
+                  intuitive dashboard.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -134,7 +143,8 @@ export default async function Home() {
                 </div>
                 <CardTitle>Clean Experience</CardTitle>
                 <CardDescription>
-                  Beautiful, modern interface that works seamlessly in light and dark mode.
+                  Beautiful, modern interface that works seamlessly in light and
+                  dark mode.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -196,7 +206,8 @@ export default async function Home() {
               Ready to Get Started?
             </h2>
             <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 max-w-xl mx-auto">
-              Join thousands of users who trust Linkshortener for their link management needs.
+              Join thousands of users who trust Linkshortener for their link
+              management needs.
             </p>
             <SignUpButton mode="modal">
               <Button size="lg" className="text-base">
