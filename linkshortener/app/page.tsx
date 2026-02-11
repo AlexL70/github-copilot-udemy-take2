@@ -1,6 +1,11 @@
 import Image from "next/image";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { SignUpButton } from "@clerk/nextjs";
+import { Link2, Zap, Shield, BarChart3, Clock, Sparkles } from "lucide-react";
 
 export default async function Home() {
   const { userId } = await auth();
@@ -10,63 +15,196 @@ export default async function Home() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-gradient-to-b from-zinc-50 to-white dark:from-black dark:to-zinc-950">
+      <main className="container mx-auto px-4 py-16 md:py-24">
+        {/* Hero Section */}
+        <section className="flex flex-col items-center text-center mb-24">
+          <Image
+            className="dark:invert mb-8"
+            src="/next.svg"
+            alt="Next.js logo"
+            width={100}
+            height={20}
+            priority
+          />
+          
+          <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 dark:bg-primary/20">
+            <Sparkles className="mr-1 h-3 w-3" />
+            Simple. Fast. Secure.
+          </Badge>
+          
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 mb-6 max-w-4xl">
+            Shorten Links,
+            <span className="text-primary"> Amplify Impact</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          
+          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl">
+            Create short, memorable links in seconds. Track clicks, manage your URLs, 
+            and share with confidence. Built for professionals who value simplicity and security.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4">
+            <SignUpButton mode="modal">
+              <Button size="lg" className="text-base">
+                Get Started Free
+              </Button>
+            </SignUpButton>
+            <Button size="lg" variant="outline" className="text-base">
+              See How It Works
+            </Button>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="mb-24">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mb-4">
+              Everything You Need
+            </h2>
+            <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+              Powerful features designed to make link management effortless
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card className="border-zinc-200 dark:border-zinc-800">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-4">
+                  <Link2 className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle>Instant Short Links</CardTitle>
+                <CardDescription>
+                  Create short, branded links in milliseconds. No hassle, no complexity.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-zinc-200 dark:border-zinc-800">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-4">
+                  <Zap className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle>Lightning Fast</CardTitle>
+                <CardDescription>
+                  Built on modern infrastructure for blazing-fast redirects and zero downtime.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-zinc-200 dark:border-zinc-800">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-4">
+                  <Shield className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle>Secure & Private</CardTitle>
+                <CardDescription>
+                  Your data is encrypted and protected. We never share your links or analytics.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-zinc-200 dark:border-zinc-800">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-4">
+                  <BarChart3 className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle>Click Analytics</CardTitle>
+                <CardDescription>
+                  Track link performance with real-time click counts and engagement metrics.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-zinc-200 dark:border-zinc-800">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-4">
+                  <Clock className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle>Link Management</CardTitle>
+                <CardDescription>
+                  Organize, edit, and manage all your links from a single, intuitive dashboard.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-zinc-200 dark:border-zinc-800">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-4">
+                  <Sparkles className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle>Clean Experience</CardTitle>
+                <CardDescription>
+                  Beautiful, modern interface that works seamlessly in light and dark mode.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+        </section>
+
+        {/* Use Cases Section */}
+        <section className="mb-24">
+          <Card className="border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-950">
+            <CardContent className="p-8 md:p-12">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mb-4">
+                  Perfect For Every Use Case
+                </h2>
+                <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+                  Whether you&apos;re a marketer, developer, or content creator
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="text-5xl mb-4">🚀</div>
+                  <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
+                    Marketing Campaigns
+                  </h3>
+                  <p className="text-zinc-600 dark:text-zinc-400">
+                    Track campaign performance with clean, shareable links
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <div className="text-5xl mb-4">📱</div>
+                  <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
+                    Social Media
+                  </h3>
+                  <p className="text-zinc-600 dark:text-zinc-400">
+                    Share beautiful short links that fit perfectly in your posts
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <div className="text-5xl mb-4">💼</div>
+                  <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
+                    Professional Use
+                  </h3>
+                  <p className="text-zinc-600 dark:text-zinc-400">
+                    Maintain a professional image with custom branded links
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* CTA Section */}
+        <section className="text-center">
+          <div className="inline-block rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8 md:p-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-50 mb-4">
+              Ready to Get Started?
+            </h2>
+            <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 max-w-xl mx-auto">
+              Join thousands of users who trust Linkshortener for their link management needs.
+            </p>
+            <SignUpButton mode="modal">
+              <Button size="lg" className="text-base">
+                Create Your Free Account
+              </Button>
+            </SignUpButton>
+          </div>
+        </section>
       </main>
     </div>
   );
