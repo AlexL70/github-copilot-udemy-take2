@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,15 @@ export default async function Home() {
       <main className="container mx-auto px-4 py-16 md:py-24">
         {/* Hero Section */}
         <section className="flex flex-col items-center text-center mb-24">
+          <Image
+            className="dark:invert mb-8"
+            src="/next.svg"
+            alt="Next.js logo"
+            width={100}
+            height={20}
+            priority
+          />
+          
           <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 dark:bg-primary/20">
             <Sparkles className="mr-1 h-3 w-3" />
             Simple. Fast. Secure.
