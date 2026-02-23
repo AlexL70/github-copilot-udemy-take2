@@ -1,3 +1,7 @@
+---
+description: Read this before implementing or modifying any UI components in the project.
+---
+
 # UI Components - shadcn/ui
 
 This document outlines the standards for UI component usage in the Linkshortener application.
