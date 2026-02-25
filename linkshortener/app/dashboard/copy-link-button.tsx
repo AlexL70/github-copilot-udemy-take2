@@ -12,7 +12,7 @@ export function CopyLinkButton({ link }: CopyLinkButtonProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
-    const shortUrl = `${window.location.origin}/${link.shortCode}`;
+    const shortUrl = `${window.location.origin}/l/${link.shortCode}`;
     await navigator.clipboard.writeText(shortUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);

@@ -16,6 +16,21 @@ export async function getUserLinks(userId: string): Promise<Link[]> {
 }
 
 /**
+ * Fetches a link by its short code.
+ * @param shortCode - The short code to look up
+ * @returns The link if found, null otherwise
+ */
+export async function getLinkByShortCode(shortCode: string): Promise<Link | null> {
+  const [link] = await db
+    .select()
+    .from(links)
+    .where(eq(links.shortCode, shortCode))
+    .limit(1);
+
+  return link || null;
+}
+
+/**
  * Generates a random short code for a link.
  * @returns A random 6-character alphanumeric string
  */
