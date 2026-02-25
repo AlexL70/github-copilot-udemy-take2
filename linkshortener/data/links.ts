@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { links, type Link, type NewLink } from "@/db/schema";
-import { eq, desc } from "drizzle-orm";
+import { eq, desc, and } from "drizzle-orm";
 
 /**
  * Fetches all links for a specific user, ordered by creation date (newest first).
@@ -50,4 +50,69 @@ export async function createLink(data: {
     .returning();
 
   return newLink;
+}
+
+/**
+ * Updates an existing link. Verifies ownership before updating.
+ * @param linkId - The ID of the link to update
+ * @param userId - The user ID to verify ownership
+ * @param data - The data to update (originalUrl and/or shortCode)
+ * @returns The updated link
+ * @throws Error if link not found or user is not the owner
+ */
+export async function updateLink(
+  linkId: number,
+  userId: string,
+  data: {
+    originalUrl?: string;
+    shortCode?: string;
+  }
+): Promise<Link> {
+  // First, verify the link exists and belongs to the user
+  const [existingLink] = await db
+    .select()
+    .from(links)
+    .where(and(eq(links.id, linkId), eq(links.userId, userId)))
+    .limit(1);
+
+  if (!existingLink) {
+    throw new Error("Link not found or unauthorized");
+  }
+
+  // Update the link
+  const [updatedLink] = await db
+    .update(links)
+    .set({
+      ...data,
+      updatedAt: new Date(),
+    })
+    .where(eq(links.id, linkId))
+    .returning();
+
+  return updatedLink;
+}
+
+/**
+ * Deletes a link. Verifies ownership before deleting.
+ * @param linkId - The ID of the link to delete
+ * @param userId - The user ID to verify ownership
+ * @throws Error if link not found or user is not the owner
+ */
+export async function deleteLink(
+  linkId: number,
+  userId: string
+): Promise<void> {
+  // First, verify the link exists and belongs to the user
+  const [existingLink] = await db
+    .select()
+    .from(links)
+    .where(and(eq(links.id, linkId), eq(links.userId, userId)))
+    .limit(1);
+
+  if (!existingLink) {
+    throw new Error("Link not found or unauthorized");
+  }
+
+  // Delete the link
+  await db.delete(links).where(eq(links.id, linkId));
 }

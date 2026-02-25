@@ -9,8 +9,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { CreateLinkDialog } from "./create-link-dialog";
+import { CopyLinkButton } from "./copy-link-button";
+import { EditLinkButton } from "./edit-link-button";
+import { DeleteLinkButton } from "./delete-link-button";
 
 export default async function DashboardPage() {
   const { userId } = await auth();
@@ -67,9 +69,11 @@ export default async function DashboardPage() {
                       </Badge>
                     </CardDescription>
                   </div>
-                  <Button variant="outline" size="sm">
-                    Copy
-                  </Button>
+                  <div className="flex items-center gap-2">
+                    <CopyLinkButton link={link} />
+                    <EditLinkButton link={link} />
+                    <DeleteLinkButton link={link} />
+                  </div>
                 </div>
               </CardHeader>
               <CardContent>
