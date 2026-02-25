@@ -20,7 +20,9 @@ export async function getUserLinks(userId: string): Promise<Link[]> {
  * @param shortCode - The short code to look up
  * @returns The link if found, null otherwise
  */
-export async function getLinkByShortCode(shortCode: string): Promise<Link | null> {
+export async function getLinkByShortCode(
+  shortCode: string,
+): Promise<Link | null> {
   const [link] = await db
     .select()
     .from(links)
@@ -35,7 +37,8 @@ export async function getLinkByShortCode(shortCode: string): Promise<Link | null
  * @returns A random 6-character alphanumeric string
  */
 function generateShortCode(): string {
-  const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  const chars =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   let result = "";
   for (let i = 0; i < 6; i++) {
     result += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -81,7 +84,7 @@ export async function updateLink(
   data: {
     originalUrl?: string;
     shortCode?: string;
-  }
+  },
 ): Promise<Link> {
   // First, verify the link exists and belongs to the user
   const [existingLink] = await db
@@ -115,7 +118,7 @@ export async function updateLink(
  */
 export async function deleteLink(
   linkId: number,
-  userId: string
+  userId: string,
 ): Promise<void> {
   // First, verify the link exists and belongs to the user
   const [existingLink] = await db

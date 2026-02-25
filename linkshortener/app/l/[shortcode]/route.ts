@@ -3,7 +3,7 @@ import { getLinkByShortCode } from "@/data/links";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ shortcode: string }> }
+  { params }: { params: Promise<{ shortcode: string }> },
 ) {
   try {
     const { shortcode } = await params;
@@ -12,7 +12,7 @@ export async function GET(
     if (!shortcode || typeof shortcode !== "string") {
       return NextResponse.json(
         { error: "Invalid short code" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -20,10 +20,7 @@ export async function GET(
     const link = await getLinkByShortCode(shortcode);
 
     if (!link) {
-      return NextResponse.json(
-        { error: "Link not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "Link not found" }, { status: 404 });
     }
 
     // Redirect to the original URL
@@ -32,7 +29,7 @@ export async function GET(
     console.error("Error redirecting link:", error);
     return NextResponse.json(
       { error: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

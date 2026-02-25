@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SignUpButton } from "@clerk/nextjs";
-import { Link2, Zap, Shield, BarChart3, Clock, Sparkles } from "lucide-react";
+import { Link2, Zap, Shield, Clock, Sparkles } from "lucide-react";
 
 export default async function Home() {
   const { userId } = await auth();
@@ -45,9 +45,9 @@ export default async function Home() {
           </h1>
 
           <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl">
-            Create short, memorable links in seconds. Track clicks, manage your
-            URLs, and share with confidence. Built for professionals who value
-            simplicity and security.
+            Create short, memorable links in seconds. Manage your URLs, and
+            share with confidence. Built for professionals who value simplicity
+            and security.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -105,20 +105,7 @@ export default async function Home() {
                 <CardTitle>Secure & Private</CardTitle>
                 <CardDescription>
                   Your data is encrypted and protected. We never share your
-                  links or analytics.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-zinc-200 dark:border-zinc-800">
-              <CardHeader>
-                <div className="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center mb-4">
-                  <BarChart3 className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle>Click Analytics</CardTitle>
-                <CardDescription>
-                  Track link performance with real-time click counts and
-                  engagement metrics.
+                  links or personal information.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -171,7 +158,7 @@ export default async function Home() {
                     Marketing Campaigns
                   </h3>
                   <p className="text-zinc-600 dark:text-zinc-400">
-                    Track campaign performance with clean, shareable links
+                    Share clean, shareable links across your campaigns
                   </p>
                 </div>
 

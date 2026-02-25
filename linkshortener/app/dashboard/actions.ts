@@ -10,7 +10,10 @@ const createLinkSchema = z.object({
   originalUrl: z.string().url("Please enter a valid URL"),
   shortCode: z
     .string()
-    .regex(/^[a-zA-Z0-9_-]*$/, "Short code can only contain letters, numbers, hyphens, and underscores")
+    .regex(
+      /^[a-zA-Z0-9_-]*$/,
+      "Short code can only contain letters, numbers, hyphens, and underscores",
+    )
     .min(0)
     .max(10, "Short code must be 10 characters or less")
     .optional(),
@@ -60,7 +63,10 @@ const updateLinkSchema = z.object({
   originalUrl: z.string().url("Please enter a valid URL"),
   shortCode: z
     .string()
-    .regex(/^[a-zA-Z0-9_-]+$/, "Short code can only contain letters, numbers, hyphens, and underscores")
+    .regex(
+      /^[a-zA-Z0-9_-]+$/,
+      "Short code can only contain letters, numbers, hyphens, and underscores",
+    )
     .min(1, "Short code cannot be empty")
     .max(10, "Short code must be 10 characters or less"),
 });
@@ -87,14 +93,10 @@ export async function updateLinkAction(input: UpdateLinkInput) {
 
   try {
     // 3. Call data layer helper function
-    const result = await updateLink(
-      validation.data.linkId,
-      userId,
-      {
-        originalUrl: validation.data.originalUrl,
-        shortCode: validation.data.shortCode,
-      }
-    );
+    const result = await updateLink(validation.data.linkId, userId, {
+      originalUrl: validation.data.originalUrl,
+      shortCode: validation.data.shortCode,
+    });
 
     // 4. Revalidate relevant paths
     revalidatePath("/dashboard");
@@ -102,12 +104,15 @@ export async function updateLinkAction(input: UpdateLinkInput) {
     return { success: true, data: result };
   } catch (error) {
     console.error("Failed to update link:", error);
-    
+
     // Handle specific error messages
-    if (error instanceof Error && error.message === "Link not found or unauthorized") {
+    if (
+      error instanceof Error &&
+      error.message === "Link not found or unauthorized"
+    ) {
       return { success: false, error: "Link not found or unauthorized" };
     }
-    
+
     return { success: false, error: "Failed to update link" };
   }
 }
@@ -147,12 +152,15 @@ export async function deleteLinkAction(input: DeleteLinkInput) {
     return { success: true };
   } catch (error) {
     console.error("Failed to delete link:", error);
-    
+
     // Handle specific error messages
-    if (error instanceof Error && error.message === "Link not found or unauthorized") {
+    if (
+      error instanceof Error &&
+      error.message === "Link not found or unauthorized"
+    ) {
       return { success: false, error: "Link not found or unauthorized" };
     }
-    
+
     return { success: false, error: "Failed to delete link" };
   }
 }

@@ -11,8 +11,12 @@ export const links = pgTable("links", {
   shortCode: varchar("short_code", { length: 10 }).notNull().unique(),
   originalUrl: text("original_url").notNull(),
   userId: text("user_id").notNull(),
-  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
-  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .defaultNow()
+    .notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true })
+    .defaultNow()
+    .notNull(),
 });
 
 // Export inferred types
