@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getLinkByShortCode } from "@/data/links";
+import { isSafeUrl } from "@/lib/utils";
 
 export async function GET(
   request: NextRequest,
@@ -21,6 +22,17 @@ export async function GET(
 
     if (!link) {
       return NextResponse.json({ error: "Link not found" }, { status: 404 });
+    }
+
+    // Security: Validate URL before redirecting to prevent XSS attacks
+    if (!isSafeUrl(link.originalUrl)) {
+      console.error(
+        `Unsafe URL detected for shortcode ${shortcode}: ${link.originalUrl}`,
+      );
+      return NextResponse.json(
+        { error: "Invalid redirect URL" },
+        { status: 400 },
+      );
     }
 
     // Redirect to the original URL

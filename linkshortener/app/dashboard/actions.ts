@@ -4,10 +4,17 @@ import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { createLink, updateLink, deleteLink } from "@/data/links";
+import { isSafeUrl } from "@/lib/utils";
 
 // Define Zod schema for validation
 const createLinkSchema = z.object({
-  originalUrl: z.string().url("Please enter a valid URL"),
+  originalUrl: z
+    .string()
+    .url("Please enter a valid URL")
+    .refine(
+      (url) => isSafeUrl(url),
+      "URL must use http:// or https:// protocol only",
+    ),
   shortCode: z
     .string()
     .regex(
@@ -60,7 +67,13 @@ export async function createLinkAction(input: CreateLinkInput) {
 // Define Zod schema for updating links
 const updateLinkSchema = z.object({
   linkId: z.number(),
-  originalUrl: z.string().url("Please enter a valid URL"),
+  originalUrl: z
+    .string()
+    .url("Please enter a valid URL")
+    .refine(
+      (url) => isSafeUrl(url),
+      "URL must use http:// or https:// protocol only",
+    ),
   shortCode: z
     .string()
     .regex(
